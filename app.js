@@ -3,7 +3,7 @@ const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const PORT = 3000;
+const port = 3000;
 
 let items = ["Buy Food", "Cook Food" , "Eat Food"];
 
@@ -84,16 +84,9 @@ app.get('/', function(req ,res ) {
         })
     })
 
+app.listen(process.env.PORT || port, function(){
     
-    let port = process.env.PORT;
-    if(port== null || port ==""){
-        port = 3000
-    }
-
-
-app.listen(port, function(){
-    
-    console.log(`Server has started successfully}`);
+    console.log(`Server has started successfully on port ${port}`);
 });
 
 
